@@ -26,6 +26,18 @@
             // Assert
             $this->assertEquals($name, $result);
         }
+
+        function test_save()
+        {
+            // Arrange
+            $name = "Betty";
+            $test_Stylist = new Stylist($name, "Wednesday, Friday", "cut, perm, style, shampoo", 1);
+            $test_Stylist->save();
+            // Act
+            $result = Stylist::getAll();
+            // Assert
+            $this->assertEquals($test_Stylist, $result[0]);
+        }
     }
 
  ?>
