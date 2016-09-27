@@ -22,7 +22,6 @@
             $test_Stylist = new Stylist($name, "Wednesday, Friday", "cut, perm, style, shampoo", 1);
             // Act
             $result = $test_Stylist->getName();
-            return var_dump($result);
             // Assert
             $this->assertEquals($name, $result);
         }
@@ -36,8 +35,10 @@
             // Act
             $result = Stylist::getAll();
             // Assert
-            $this->assertEquals($test_Stylist, $result[0]);
+            $this->assertEquals($test_Stylist, $result[1]);
         }
+
+
     }
 
  ?>
