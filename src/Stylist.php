@@ -21,6 +21,11 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        function deleteStylist()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO stylists WHERE id = {$this->id};");
+        }
+
 // Static Functions
 
         static function getAll()

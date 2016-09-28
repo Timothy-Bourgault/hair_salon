@@ -66,7 +66,7 @@
             $test_stylist1->save();
             $stylist_name2 = "Marco";
             $test_stylist2 = new Stylist($stylist_name2, "Thursday, Monday", "color, shampoo, style");
-            $test_stylist->save();
+            $test_stylist2->save();
             // Act
             $test_stylist1->deleteStylist();
             $result_stylists = Stylist::getAll();
