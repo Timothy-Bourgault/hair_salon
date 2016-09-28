@@ -17,7 +17,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO stylists(name, sheduled_days, specialties) VALUES ('{$this->getName()}', '{$this->getScheduledDays()}', '{$this->getSpecialties()}')");
+            $GLOBALS['DB']->exec("INSERT INTO stylists(name, scheduled_days, specialties) VALUES ('{$this->getName()}', '{$this->getScheduledDays()}', '{$this->getSpecialties()}')");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -36,6 +36,11 @@
                 array_push($stylists, $new_stylist);
             }
             return $stylists;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylists;");
         }
 
 // Getters and Setters

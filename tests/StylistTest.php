@@ -15,6 +15,12 @@
     class StylistTest extends PHPUnit_Framework_TestCase
     {
 
+        protected function tearDown()
+        {
+            // Clientel::deleteAll();
+            Stylist::deleteAll();
+        }
+
         function test_getName()
         {
             // Arrange
@@ -30,15 +36,12 @@
         {
             // Arrange
             $name = "Betty";
-            $test_Stylist = new Stylist($name, "Wednesday, Friday", "cut, perm, style, shampoo", 1);
+            $test_Stylist = new Stylist($name, "Wednesday, Friday", "cut, perm, style, shampoo");
             $test_Stylist->save();
             // Act
             $result = Stylist::getAll();
             // Assert
-            $this->assertEquals($test_Stylist, $result[1]);
+            $this->assertEquals($test_Stylist, $result[0]);
         }
-
-
     }
-
  ?>
