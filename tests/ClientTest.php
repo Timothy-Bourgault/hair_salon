@@ -5,7 +5,7 @@
     * @backupsStaticAttributes disabled
     **/
 
-    require_once "src/Clientel.php";
+    require_once "src/Client.php";
 
     $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';

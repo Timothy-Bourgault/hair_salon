@@ -1,6 +1,6 @@
 <?php
 
-    class Clientel
+    class Client
     {
         private $id;
         private $stylist_id;
@@ -13,6 +13,6 @@
             $this->name = $name;
         }
 
-    
+
     }
 ?>

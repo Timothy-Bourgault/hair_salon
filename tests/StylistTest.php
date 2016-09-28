@@ -58,5 +58,20 @@
             // Assert
             $this->assertEquals([$test_Stylist1, $test_Stylist2], $result);
         }
+
+        function test_deleteStylist()
+        {
+            $stylist_name1 = "Betty";
+            $test_stylist1 = new Stylist($stylist_name1, "Wednesday, Friday", "cut, perm, style, shampoo");
+            $test_stylist1->save();
+            $stylist_name2 = "Marco";
+            $test_stylist2 = new Stylist($stylist_name2, "Thursday, Monday", "color, shampoo, style");
+            $test_stylist->save();
+            // Act
+            $test_stylist1->deleteStylist();
+            $result_stylists = Stylist::getAll();
+            // Assert
+            $this->assertEquals([$test_stylist2], $result_stylists);
+        }
     }
  ?>
