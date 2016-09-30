@@ -13,10 +13,16 @@
             $this->name = $name;
         }
 // Static Functions
-
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients;");
+        }
 // Getters and Setters
 
-
+        function getName()
+        {
+            return $this->name;
+        }
 
     }
 ?>
