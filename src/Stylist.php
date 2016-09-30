@@ -23,7 +23,7 @@
 
         function deleteStylist()
         {
-            $GLOBALS['DB']->exec("INSERT INTO stylists WHERE id = {$this->id};");
+            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->id};");
         }
 
 // Static Functions
