@@ -31,18 +31,18 @@
             $this->assertEquals($name, $result);
         }
 
-    //     function test_save()
-    //     {
-    //         // Arrange
-    //         $name = "Betty";
-    //         $test_Clients = new Clients($name, "Wednesday, Friday", "cut, perm, style, shampoo");
-    //         $test_Clients->save();
-    //         // Act
-    //         $result = Clients::getAll();
-    //         // Assert
-    //         $this->assertEquals($test_Clients, $result[0]);
-    //     }
-    //
+        function test_save()
+        {
+            // Arrange
+            $name = "Bob Weir";
+            $test_Clients = new Clients($name, 1);
+            $test_Clients->save();
+            // Act
+            $result = Clients::getAll();
+            // Assert
+            $this->assertEquals($test_Clients, $result[0]);
+        }
+
     //     function test_getAll()
     //     {
     //         // Arrange
