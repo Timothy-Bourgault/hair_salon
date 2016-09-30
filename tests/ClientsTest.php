@@ -18,6 +18,7 @@
         protected function tearDown()
         {
             Clients::deleteAll();
+            Stylist::deleteAll();
         }
 
         function test_getName()
