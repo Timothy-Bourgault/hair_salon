@@ -64,6 +64,13 @@
         {
             return $this->specialties;
         }
+
+        function setName($new_name)
+        {
+            return $this->name = (string) $new_name;
+            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$this->name}'
+            WHERE id = {$this->id};");
+        }
     }
 
  ?>
