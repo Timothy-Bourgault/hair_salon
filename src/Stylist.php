@@ -69,12 +69,28 @@
         {
             $GLOBALS['DB']->exec("UPDATE stylists SET scheduled_days = '{$new_scheduled_days}'
             WHERE scheduled_days = {$this->scheduled_days};");
+            $this->setScheduledDays($new_scheduled_days);
         }
 
         function updateSpecialties($new_specialties)
         {
             $GLOBALS['DB']->exec("UPDATE stylists SET specialties = '{$new_specialties}'
             WHERE specialties = {$this->specialties};");
+            $this->setSpecialties($new_specialties);
+        }
+
+        function getClients()
+        {
+          $clients = Array();
+          $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients WHERE stylist_id = {$this->getId()};");
+          foreach($returned_clients as $client) {
+            $name = $client['name'];
+            $stylist_id = $client['stylist_id'];
+            $id = $client['id'];
+            $new_client = new Client($name, $stylist_id, $id);
+            array_push($clients, $new_client);
+          }
+          return $clients;
         }
 
 // Static Functions
@@ -97,6 +113,19 @@
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylists;");
+        }
+
+        static function find($search_id)
+        {
+          $found_stylist = null;
+          $stylists = Stylist::getAll();
+          foreach($stylists as $stylist) {
+            $stylist_id = $stylist->getId();
+            if($stylist_id == $search_id) {
+              $found_stylist = $stylist;
+            }
+          }
+          return $found_stylist;
         }
 
 

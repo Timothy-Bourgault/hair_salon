@@ -82,10 +82,12 @@
         function test_setName()
         {
             // Arrange
-            $client_name1 = "Betty";
-            $test_client1 = new Client($client_name1, "Wednesday, Friday", "cut, perm, style, shampoo");
+            $client_name1 = "Bob Weir";
+            $stylist_id = 1;
+            $test_client1 = new Client($client_name1, $stylist_id);
+            $test_client1->save();
             // Act
-            $new_name = "Betty White";
+            $new_name = "Bob Weird";
             $test_client1->setName($new_name);
             // Assert
             $this->assertEquals($new_name, $test_client1->getName());
