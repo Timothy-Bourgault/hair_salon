@@ -52,7 +52,7 @@
 
     $app->get("/get_client/{id}", function($id) use ($app) {
       $selected_client = Client::find($id);
-      return $app['twig']->render('update_client.html.twig', array('clients' => $selected_client));
+      return $app['twig']->render('update_client.html.twig', array('client' => $selected_client));
     });
 
     return $app;
