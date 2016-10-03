@@ -47,10 +47,5 @@
       return $app['twig']->render('/stylist.html.twig');
     });
 
-    $app->get("/filter_by_client/{client_name}", function($client_name) {
-    });
-
-    // $app->delete('/'
-
     return $app;
  ?>
