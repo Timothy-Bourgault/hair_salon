@@ -79,6 +79,18 @@
             $this->assertEquals([$test_client2], $result_client);
         }
 
+        function test_setName()
+        {
+            // Arrange
+            $client_name1 = "Betty";
+            $test_client1 = new Client($client_name1, "Wednesday, Friday", "cut, perm, style, shampoo");
+            // Act
+            $new_name = "Betty White";
+            $test_client1->setName($new_name);
+            // Assert
+            $this->assertEquals($new_name, $test_client1->getName());
+        }
+
      }
 
 
