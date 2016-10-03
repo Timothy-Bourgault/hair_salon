@@ -62,6 +62,21 @@
             $this->assertEquals([$test_client1, $test_client2], $result);
         }
 
+        function test_deleteClient()
+        {
+            $client_name1 = "Betty";
+            $test_client1 = new Client($client_name1, "Wednesday, Friday", "cut, perm, style, shampoo");
+            $test_client1->save();
+            $client_name2 = "Marco";
+            $test_client2 = new Client($client_name2, "Thursday, Monday", "color, shampoo, style");
+            $test_client2->save();
+            // Act
+            $test_client1->deleteClient();
+            $result_client = Client::getAll();
+            // Assert
+            $this->assertEquals([$test_client2], $result_client);
+        }
+
      }
 
 
