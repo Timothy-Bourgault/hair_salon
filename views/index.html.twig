@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Salon</title>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Sally's Super Salon</h1>
+        <div class="row">
+          <div class="col-sm-6">
+            <h2>List of Current Stylists:</h2>
+            {% if stylists is not empty %}
+              {% for stylist in stylists %}
+                <li><a href="/stylist.html.twig"></a>
+                  {{ stylist.getName }}
+                </li>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <div class="col-sm-6">
+            <h2>Add a New Stylist to your Roster Here:</h2>
+            <form action="/add_stylist" method="post">
+              <label for="stylist_name">Stlyist Name</label>
+              <input id="stylist_name" type="text" name="name">
+              <br>
+              <label for="stylist_scheduled_days">Stlyist Scheduled Days</label>
+              <input id="stylist_scheduled_days" type="text" name="scheduled_days">
+              <br>
+              <label for="stylist_specialties">Stlyist Specialties</label>
+              <input id="stylist_specialties" type="text" name="specialties">
+              <br>
+              <button class="btn-success btn-md" type="submit">Add Stylist</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
