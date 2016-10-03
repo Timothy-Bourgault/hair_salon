@@ -17,7 +17,7 @@
 
         protected function tearDown()
         {
-            Clients::deleteAll();
+            Client::deleteAll();
             Stylist::deleteAll();
         }
 
@@ -30,6 +30,18 @@
             $result = $test_Stylist->getName();
             // Assert
             $this->assertEquals($name, $result);
+        }
+
+        function test_setName()
+        {
+            // Arrange
+            $stylist_name1 = "Betty";
+            $test_Stylist1 = new Stylist($stylist_name1, "Wednesday, Friday", "cut, perm, style, shampoo");
+            // Act
+            $new_name = "Betty White";
+            $test_Stylist1->setName($new_name);
+            // Assert
+            $this->assertEquals($new_name, $test_Stylist1->getName());
         }
 
         function test_save()
@@ -74,16 +86,5 @@
             $this->assertEquals([$test_Stylist2], $result_Stylists);
         }
 
-        function test_setName()
-        {
-            // Arrange
-            $stylist_name1 = "Betty";
-            $test_Stylist1 = new Stylist($stylist_name1, "Wednesday, Friday", "cut, perm, style, shampoo");
-            // Act
-            $new_name = "Betty White";
-            $test_Stylist1->setName($new_name);
-            // Assert
-            $this->assertEquals($new_name, $test_Stylist1->getName());
-        }
     }
  ?>

@@ -1,0 +1,51 @@
+<?php
+
+    /**
+    * @backupGlobals disabled
+    * @backupsStaticAttributes disabled
+    **/
+
+    require_once "src/Client.php";
+
+    $server = 'mysql:host=localhost;dbname=hair_salon_test';
+    $username = 'root';
+    $password = 'root';
+    $DB = new PDO($server, $username, $password);
+
+    class ClientTest extends PHPUnit_Framework_TestCase
+    {
+
+        protected function tearDown()
+        {
+            Client::deleteAll();
+            Stylist::deleteAll();
+        }
+
+        function test_getName()
+        {
+            // Arrange
+            $name = "Bob Weir";
+            $test_client = new Client($name, 1);
+            // Act
+            $result = $test_client->getName();
+            // Assert
+            $this->assertEquals($name, $result);
+        }
+
+        function test_save()
+        {
+            // Arrange
+            $name = "Bob Weir";
+            $stylist_id = 1;
+            $test_client = new Client($name, $stylist_id);
+            $test_client->save();
+            // Act
+            $result = Client::getAll();
+            // Assert
+            $this->assertEquals($test_client, $result[0]);
+        }
+
+     }
+
+
+ ?>

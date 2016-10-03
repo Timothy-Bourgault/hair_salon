@@ -15,6 +15,30 @@
             $this->specialties;
         }
 
+        // Getters and Setters
+
+        function getName()
+        {
+            return $this->name;
+        }
+
+        function getScheduledDays()
+        {
+            return $this->scheduled_days;
+        }
+
+        function getSpecialties()
+        {
+            return $this->specialties;
+        }
+
+        function setName($new_name)
+        {
+            return $this->name = (string) $new_name;
+            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$this->name}'
+            WHERE id = {$this->id};");
+        }
+
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO stylists(name, scheduled_days, specialties) VALUES ('{$this->getName()}', '{$this->getScheduledDays()}', '{$this->getSpecialties()}')");
@@ -48,29 +72,7 @@
             $GLOBALS['DB']->exec("DELETE FROM stylists;");
         }
 
-// Getters and Setters
 
-        function getName()
-        {
-            return $this->name;
-        }
-
-        function getScheduledDays()
-        {
-            return $this->scheduled_days;
-        }
-
-        function getSpecialties()
-        {
-            return $this->specialties;
-        }
-
-        function setName($new_name)
-        {
-            return $this->name = (string) $new_name;
-            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$this->name}'
-            WHERE id = {$this->id};");
-        }
     }
 
  ?>
