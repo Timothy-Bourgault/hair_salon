@@ -18,9 +18,9 @@
             return $this->name;
         }
 
-        function setName($new_name)
+        function setName($updated_name)
         {
-            $this->name = (string) $new_name;
+            $this->name = (string) $updated_name;
         }
 
         function getStylistId()
@@ -52,6 +52,13 @@
         function deleteClient()
         {
             $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->id};");
+        }
+
+        function updateName($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE clients SET name = '{$new_name}'
+            WHERE id = {$this->id};");
+            $this->setName($new_name);
         }
 
 // Static Functions
@@ -88,6 +95,8 @@
             }
             return $found_client;
         }
+
+
 
     }
 ?>

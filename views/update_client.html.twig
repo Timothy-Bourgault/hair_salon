@@ -10,11 +10,18 @@
   <body>
     <div class="container">
       <h1>Update {{ client.getName }}'s name </h1>
-      <form action="/update_client_name" method="post">
-        <label for="client_name">Name</label>
-        <input id="client_name" type="text" name="client_name">
+      <form action="/update_client/{{ client.getId }}" method="post">
+        <input value="patch" type="hidden" name="_method">
+          <div class="form-group">
+            <label for="update_client">Update Name</label>
+            <input class="form-control" name="update_client" type="text">
+          </div>
         <br>
         <button class="btn-success btn-md" type="submit">Enter Name Update</button>
+      </form>
+      <hr>
+      <form action="/delete_client/{{ client.getId }}" method="post">
+        <button type="submit" class="btn-danger btn-sm">Delete Client</button>
       </form>
     </div>
   </body>
