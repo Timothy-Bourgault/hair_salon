@@ -11,8 +11,8 @@
         {
             $this->id = $id;
             $this->name = $name;
-            $this->scheduled_days;
-            $this->specialties;
+            $this->scheduled_days = $scheduled_days;
+            $this->specialties = $specialties;
         }
 
         // Getters and Setters
