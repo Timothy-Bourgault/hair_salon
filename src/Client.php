@@ -49,6 +49,11 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        function deleteClient()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->id};");
+        }
+
 // Static Functions
 
 

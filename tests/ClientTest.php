@@ -64,11 +64,13 @@
 
         function test_deleteClient()
         {
-            $client_name1 = "Betty";
-            $test_client1 = new Client($client_name1, "Wednesday, Friday", "cut, perm, style, shampoo");
+            $client_name1 = "Bob Weir";
+            $stylist_id = 1;
+            $test_client1 = new Client($client_name1, $stylist_id);
             $test_client1->save();
-            $client_name2 = "Marco";
-            $test_client2 = new Client($client_name2, "Thursday, Monday", "color, shampoo, style");
+            $client_name2 = "James Bosh";
+            $stylist_id = 2;
+            $test_client2 = new Client($client_name2, $stylist_id);
             $test_client2->save();
             // Act
             $test_client1->deleteClient();
