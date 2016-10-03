@@ -86,5 +86,21 @@
             $this->assertEquals([$test_Stylist2], $result_Stylists);
         }
 
+        function test_updateName()
+        {
+          // Arrange
+          $name = "Betty";
+          $scheduled_days = "Wednesday, Friday";
+          $specialties = "cut, perm, style, shampoo";
+          $test_stylist1 = new Stylist($name, $scheduled_days, $specialties);
+          $test_stylist1->save();
+          // Act
+          $new_name = "Betty White";
+          $test_stylist1->updateName($new_name);
+          $result = $test_stylist1->getName();
+          // Assert
+          $this->assertEquals($new_name, $result);
+        }
+
     }
  ?>
