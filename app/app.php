@@ -50,5 +50,10 @@
       return $app['twig']->render('stylist.html.twig', array('clients' => $clients, 'stylist' => $found_stylist));
     });
 
+    $app->get("/get_client/{id}", function($id) use ($app) {
+      $selected_client = Client::find($id);
+      return $app['twig']->render('update_client.html.twig', array('clients' => $selected_client));
+    });
+
     return $app;
  ?>

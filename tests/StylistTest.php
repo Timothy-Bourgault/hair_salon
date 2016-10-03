@@ -100,5 +100,21 @@
           $this->assertEquals($new_name, $result);
         }
 
+        function test_deleteAll()
+        {
+          // Arrange
+          $stylist_name1 = "Betty";
+          $test_Stylist1 = new Stylist($stylist_name1, "Wednesday, Friday", "cut, perm, style, shampoo");
+          $test_Stylist1->save();
+          $Stylist_name2 = "Marco";
+          $test_Stylist2 = new Stylist($Stylist_name2, "Thursday, Monday", "color, shampoo, style");
+          $test_Stylist2->save();
+          // Act
+          Stylist::deleteAll();
+          $result = Stylist::getAll();
+          // Assert
+          $this->assertEquals([], $result); 
+        }
+
     }
  ?>
