@@ -22,9 +22,19 @@
             return $this->name;
         }
 
+        function setName($new_name)
+        {
+            $this->name = (string) $new_name;
+        }
+
         function getScheduledDays()
         {
             return $this->scheduled_days;
+        }
+
+        function setScheduledDays($new_schedule)
+        {
+            $this->scheduled_days = (string) $new_schedule;
         }
 
         function getSpecialties()
@@ -32,11 +42,9 @@
             return $this->specialties;
         }
 
-        function setName($new_name)
+        function setSpecialties($new_specialties)
         {
-            return $this->name = (string) $new_name;
-            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$this->name}'
-            WHERE id = {$this->id};");
+            $this->specialties = (string) $new_specialties;
         }
 
         function save()
@@ -48,6 +56,25 @@
         function deleteStylist()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->id};");
+        }
+
+        function updateName($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$new_name}'
+            WHERE id = {$this->id};");
+            $this->setName($new_name);
+        }
+
+        function updateScheduledDays($new_scheduled_days)
+        {
+            $GLOBALS['DB']->exec("UPDATE stylists SET scheduled_days = '{$new_scheduled_days}'
+            WHERE scheduled_days = {$this->scheduled_days};");
+        }
+
+        function updateSpecialties($new_specialties)
+        {
+            $GLOBALS['DB']->exec("UPDATE stylists SET specialties = '{$new_specialties}'
+            WHERE specialties = {$this->specialties};");
         }
 
 // Static Functions

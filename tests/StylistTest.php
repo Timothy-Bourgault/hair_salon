@@ -90,9 +90,7 @@
         {
           // Arrange
           $name = "Betty";
-          $scheduled_days = "Wednesday, Friday";
-          $specialties = "cut, perm, style, shampoo";
-          $test_stylist1 = new Stylist($name, $scheduled_days, $specialties);
+          $test_stylist1 = new Stylist($name, "Wednesday, Friday", "cut, perm, style, shampoo");
           $test_stylist1->save();
           // Act
           $new_name = "Betty White";
