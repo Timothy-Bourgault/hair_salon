@@ -11,14 +11,14 @@
 
     $app = new Silex\Application();
 
-    // use Symfony\Component\HttpFoundation\Request;
-    // Request::enableHttpMethodParameterOverride();
-
-    $app['debug']=true;
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
     ));
+
+    $app['debug']=true;
 
     $app->get("/", function() use ($app) {
       return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
@@ -28,10 +28,10 @@
       $name = $_POST['stylist_name'];
       $scheduled_days = $_POST['stylist_scheduled_days'];
       $specialties = $_POST['stylist_specialties'];
-      $stylist = new Stylist($name, $scheduled_days, $specialties);
-      $stylist->save();
-      $stylists = Stylist::getAll();
-      return $app['twig']->render('index.html.twig', array('stylists' => $stylists));
+      $new_stylist = new Stylist($name, $scheduled_days, $specialties);
+      $new_stylist->save();
+      $new_stylist = Stylist::getAll();
+      return $app['twig']->render('index.html.twig', array('stylists' => $new_stylist));
     });
 
     $app->post("/add_client", function() use ($app) {
@@ -44,5 +44,7 @@
     $app->get("/filter_by_client/{client_name}", function($client_name) {
     });
 
-    return $app
+    // $app->delete('/'
+
+    return $app;
  ?>
