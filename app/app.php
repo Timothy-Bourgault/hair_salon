@@ -20,5 +20,28 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
+    $app->get("/", function() use ($app) {
+      return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
+    $app->post("/add_stylist", function() use ($app) {
+      $name = $_POST['stylist_name'];
+      $scheduled_days = $_POST['stylist_scheduled_days'];
+      $specialties = $_POST['stylist_specialties'];
+      $stylist = new Stylist($name, $scheduled_days, $specialties);
+      $stylist->save();
+      return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
+    $app->post("/add_client", function() use ($app) {
+      $name = $_POST['client_name'];
+      $client = new Client($name);
+      $client->save();
+      return $app['twig']->render('/stylist.html.twig');
+    });
+
+    $app->get("/filter_by_client/{client_name}", function($client_name) {
+    });
+
 
  ?>
