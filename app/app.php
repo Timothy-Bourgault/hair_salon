@@ -30,8 +30,8 @@
       $specialties = $_POST['stylist_specialties'];
       $new_stylist = new Stylist($name, $scheduled_days, $specialties);
       $new_stylist->save();
-      $new_stylist = Stylist::getAll();
-      return $app['twig']->render('index.html.twig', array('stylists' => $new_stylist));
+      $stylists = Stylist::getAll();
+      return $app['twig']->render('index.html.twig', array('stylist' => $stylists));
     });
 
     $app->get("/get_stylist/{id}", function($id) use ($app) {
@@ -42,9 +42,12 @@
 
     $app->post("/add_client", function() use ($app) {
       $name = $_POST['client_name'];
-      $client = new Client($name);
-      $client->save();
-      return $app['twig']->render('/stylist.html.twig');
+      $stylist_id = $_POST['stylist_id'];
+      $new_client = new Client($name, $stylist_id);
+      $new_client->save();
+      $found_stylist = Stylist::find($stylist_id);
+      $clients = $found_stylist->getClients();
+      return $app['twig']->render('stylist.html.twig', array('clients' => $clients, 'stylist' => $found_stylist));
     });
 
     return $app;

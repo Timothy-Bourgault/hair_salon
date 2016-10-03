@@ -15,7 +15,7 @@
           <h2>Clients:</h2>
           <ul>
             {% for client in clients %}
-              <li><a href="/client/{{client.getId}}">{{ client.getName }}</a>
+              <li><a href="/get_client/{{client.getId}}">{{ client.getName }}</a>
               </li>
             {% endfor %}
           </ul>
@@ -24,7 +24,8 @@
           <h2>Add a New Client for this Stylist:</h2>
           <form action="/add_client" method="post">
             <label for="client_name">Name</label>
-            <input id="client_name" type="text" name="name">
+            <input id="client_name" type="text" name="client_name">
+            <input type="hidden" name="stylist_id" value="{{ stylist.getId }}">
             <br>
             <br>
             <button class="btn-success btn-md" type="submit">Client Name:</button>
