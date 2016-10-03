@@ -48,11 +48,13 @@
         function test_getAll()
         {
             // Arrange
-            $name = "Betty";
-            $test_client1 = new Client($name, "Wednesday, Friday", "cut, perm, style, shampoo");
+            $name = "Bob Weir";
+            $stylist_id = 1;
+            $test_client1 = new Client($name, $stylist_id);
             $test_client1->save();
-            $name = "Marco";
-            $test_client2 = new Client($name, "Thursday, Monday", "color, shampoo, style");
+            $name = "James Bosh";
+            $stylist_id = 2;
+            $test_client2 = new Client($name, $stylist_id);
             $test_client2->save();
             // Act
             $result = Client::getAll();
