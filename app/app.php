@@ -40,6 +40,11 @@
       return $app['twig']->render('stylist.html.twig', array('stylist' => $selected_stylist, 'clients' => $selected_stylist_clients));
     });
 
+    $app->post("/stylists/delete_all", function() use ($app) {
+      Stylist::deleteAll();
+      return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
     $app->post("/add_client", function() use ($app) {
       $name = $_POST['client_name'];
       $stylist_id = $_POST['stylist_id'];
