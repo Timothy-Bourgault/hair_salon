@@ -15,7 +15,7 @@
           <h2>Clients:</h2>
           <ul>
             {% for client in clients %}
-              <li><a href="/get_client/{{client.getId}}">{{ client.getName }}</a>
+              <li><a href="/get_client/{{ stylist.getId }}/{{client.getId}}">{{ client.getName }}</a>
               </li>
             {% endfor %}
           </ul>
@@ -28,10 +28,14 @@
             <input type="hidden" name="stylist_id" value="{{ stylist.getId }}">
             <br>
             <br>
-            <button class="btn-success btn-md" type="submit">Client Name:</button>
+            <button class="btn-success btn-md" type="submit">Client Name</button>
           </form>
+          <hr>
         </div>
       </div>
+      <p>
+        <a href="/">Go To Salon Home Page</a>
+      </p>
     </div>
   </body>
 </html>

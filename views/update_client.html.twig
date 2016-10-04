@@ -10,11 +10,10 @@
   <body>
     <div class="container">
       <h1>Update {{ client.getName }}'s name </h1>
-      <form action="/update_client/{{ client.getId }}" method="post">
-        <input value="patch" type="hidden" name="_method">
+      <form action="/update_client/{{stylist.getId}}/{{ client.getId }}" method="post">
           <div class="form-group">
             <label for="update_client">Update Name</label>
-            <input class="form-control" name="update_client" type="text">
+            <input id="update_client" class="form-control" name="update_client" type="text">
           </div>
         <br>
         <button class="btn-success btn-md" type="submit">Enter Name Update</button>
