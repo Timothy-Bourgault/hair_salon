@@ -88,9 +88,9 @@
             $test_client1->save();
             // Act
             $new_name = "Bob Weird";
-            $test_client1->setName($updated_name);
+            $test_client1->setName($new_name);
             // Assert
-            $this->assertEquals($updated_name, $test_client1->getName());
+            $this->assertEquals($new_name, $test_client1->getName());
         }
 
         function test_deleteAll()
