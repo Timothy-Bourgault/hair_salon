@@ -10,19 +10,22 @@
   <body>
     <div class="container">
       <h1>Update {{ stylist.getName }}'s Stylist Profile </h1>
-      <form action="/update_stylist_name" method="post">
+      <form class="form-group" action="/update_stylist/{{ stylist.getId }}" method="post">
+        <input name="_method" type="hidden" value="patch">
         <label for="stylist_name">Name</label>
         <input id="stylist_name" type="text" name="stylist_name">
         <br>
-        <button class="btn-success btn-md" type="submit">Name</button>
+        <button class="btn-success btn-md" type="submit">Update</button>
       </form>
+
         <br>
         <br>
+        
       <form action="/update_stylist_schedule" method="post">
-        <label for="stylist_scheduled_days">Scheduled Days</label>
+        <label for="stylist_scheduled_days">Schedule</label>
         <input id="stylist_scheduled_days" type="text" name="stylist_scheduled_days">
         <br>
-        <button class="btn-success btn-md" type="submit">Schedule</button>
+        <button class="btn-success btn-md" type="submit">Update</button>
       </form>
       <br>
       <br>
@@ -30,7 +33,7 @@
         <label for="stylist_specialties">Specialties</label>
         <input id="stylist_specialties" type="text" name="stylist_specialties">
         <br>
-        <button class="btn-success btn-md" type="submit">Specialties</button>
+        <button class="btn-success btn-md" type="submit">Update</button>
       </form>
     </div>
   </body>

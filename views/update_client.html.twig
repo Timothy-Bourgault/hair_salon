@@ -20,6 +20,7 @@
       </form>
       <hr>
       <form action="/delete_client/{{ client.getId }}" method="post">
+        <input name="_method" type="hidden" value="patch">
         <button type="submit" class="btn-danger btn-sm">Delete Client</button>
       </form>
     </div>

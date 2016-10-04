@@ -34,28 +34,23 @@
       return $app['twig']->render('index.html.twig', array('stylists' => $stylists));
     });
 
-    $app->post("/update_stylist_name/{id}", function($id) use ($app) {
-      $updated_name = $_POST['update_client'];
-      $client = Client::find($id2);
-      $client->updateName($updated_name);
+    $app->post("/stylist/{id}/edit_name", function($id) use ($app) {
       $stylist = Stylist::find($id);
-      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
     });
 
-    $app->post("/update_stylist_schedule/{id}", function($scheduled_days) use ($app) {
-      $updated_name = $_POST['update_client'];
-      $client = Client::find($id2);
-      $client->updateName($updated_name);
+    $app->post("/stylist/{id}/edit_schedule", function($scheduled_days) use ($app) {
+      $updated_schedule = $_POST['update_stylist_schedule'];
+      $stylist->updateSchedule($scheduled_days);
       $stylist = Stylist::find($id);
-      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
     });
 
-    $app->post("/update_stylist_specialties/{id}", function($specialties) use ($app) {
+    $app->post("/stylist/{id}/edit_specialties", function($specialties) use ($app) {
       $updated_name = $_POST['update_client'];
-      $client = Client::find($id2);
-      $client->updateName($updated_name);
+      $stylist->updateSpecialties($specialties);
       $stylist = Stylist::find($id);
-      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
     });
 
 
