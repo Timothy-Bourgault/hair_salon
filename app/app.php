@@ -31,7 +31,7 @@
       $new_stylist = new Stylist($name, $scheduled_days, $specialties);
       $new_stylist->save();
       $stylists = Stylist::getAll();
-      return $app['twig']->render('index.html.twig', array('stylist' => $stylists));
+      return $app['twig']->render('index.html.twig', array('stylists' => $stylists));
     });
 
     $app->get("/get_stylist/{id}", function($id) use ($app) {

@@ -20,6 +20,8 @@
                 </li>
               {% endfor %}
             </ul>
+          {% else %}
+            <h3>There aren't any Stylists listed yet...Enter some into the list with the form on the right =></h3>
           {% endif %}
           <form action="/stylists/delete_all" method="post">
             <button type="submit" class="btn btn-danger">Clear All Stylists</button>
