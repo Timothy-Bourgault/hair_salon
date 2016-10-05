@@ -5,20 +5,24 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
     <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
     <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Shrikhand" rel="stylesheet">
     <title>Stylist Page</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container pageMargin">
+      <hr><hr>
       <h1>{{ stylist.getName }}'s Stylist Profile</h1>
-      <a href="/get_stylist_update/{{ stylist.getId }}">Click Here To Update This Stylist's Information</a>
+      <p id="stylistHeader">
+        <a href="/get_stylist_update/{{ stylist.getId }}">Click Here To Update This Stylist's Information</a>
+      </p>
       <hr>
       <hr>
       <div class="row">
         <div class="col-sm-6">
-          <h1>Scheduled Days:</h1><h2>{{ stylist.getScheduledDays }}</h2>
+          <h2>Scheduled Days:</h2><h3>{{ stylist.getScheduledDays }}</h3>
         </div>
         <div class="col-sm-6">
-          <h1>Specialties:</h1><h2>{{ stylist.getSpecialties }}</h2>
+          <h2>Specialties:</h2><h3>{{ stylist.getSpecialties }}</h3>
         </div>
       </div>
       <hr>
@@ -36,26 +40,29 @@
           {% else %}
             <h3>This Stylist currently has no Clients...</h3>
           {% endif %}
-          <form action="/clients/delete_all" method="post">
-            <button type="submit" class="btn btn-danger">Clear All Clients</button>
+          <form class="clearButton" action="/clients/delete_all" method="post">
+            <button type="submit" class="btn-lg btn-danger">Clear All Clients</button>
           </form>
         </div>
         <div class="col-sm-6">
           <h2>Add a New Client for this Stylist:</h2>
-          <form action="/add_client" method="post">
-            <label for="client_name">Name</label>
-            <input id="client_name" type="text" name="client_name">
+          <form class="styleForm" action="/add_client" method="post">
+            <label for="client_name"></label>
+            <input id="client_name" type="text" name="client_name"  placeholder="New Client Name...">
             <input type="hidden" name="stylist_id" value="{{ stylist.getId }}">
             <br>
             <br>
-            <button class="btn-success btn-md" type="submit">Client Name</button>
+            <button class="btn-success btn-lg" type="submit">Client Name</button>
           </form>
           <hr>
         </div>
       </div>
-      <p>
-        <a href="/">Go To Salon Home Page</a>
-      </p>
+      <hr>
+      <div class="row">
+        <p id="stylistFooter">
+          <a href="/">👈🏽 Go To Salon Home Page</a>
+        </p>
+      </div>
     </div>
   </body>
 </html>

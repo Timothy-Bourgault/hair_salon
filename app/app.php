@@ -34,23 +34,25 @@
       return $app['twig']->render('index.html.twig', array('stylists' => $stylists));
     });
 
-    $app->post("/stylist/{id}/edit_name", function($id) use ($app) {
-      $stylist = Stylist::find($id);
-      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
+    $app->post("/update_stylist_name/{id}/{name}", function($id, $name) use ($app) {
+      $stylist = Stylist::find($id, $name);
+      $updated_name = $_POST['stylist_name'];
+      $stylist->updateName($updated_name);
+      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => Stylist::getAll()));
     });
 
-    $app->post("/stylist/{id}/edit_schedule", function($scheduled_days) use ($app) {
-      $updated_schedule = $_POST['update_stylist_schedule'];
-      $stylist->updateSchedule($scheduled_days);
-      $stylist = Stylist::find($id);
-      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
+    $app->post("/update_stylist_schedule/{id}/{scheduled_days}", function($id, $scheduled_days) use ($app) {
+      $stylist = Stylist::find($id, $scheduled_days);
+      $updated_schedule = $_POST['stylist_scheduled_days'];
+      $stylist->updateScheduledDays($updated_schedule);
+      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => Stylist::getAll()));
     });
 
-    $app->post("/stylist/{id}/edit_specialties", function($specialties) use ($app) {
-      $updated_name = $_POST['update_client'];
-      $stylist->updateSpecialties($specialties);
-      $stylist = Stylist::find($id);
-      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist));
+    $app->post("/update_stylist_specialties/{id}/{specialties}", function($id, $specialties) use ($app) {
+      $stylist = Stylist::find($id, $specialties);
+      $updated_specialties = $_POST['stylist_specialties'];
+      $stylist->updateSpecialties($updated_specialties);
+      return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => Stylist::getAll()));
     });
 
 
@@ -112,7 +114,7 @@
 
     $app->post("/clients/delete_all", function() use ($app) {
       Client::deleteAll();
-      return $app['twig']->render('stylist.html.twig', array('stylists' => Stylist::getAll()));
+      return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll(), 'clients' => Client::getAll()));
     });
 
     return $app;

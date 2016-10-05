@@ -5,11 +5,15 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
     <script src="/js/jquery-3.1.0.min.js" type="text/javascript"></script>
     <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Shrikhand" rel="stylesheet">
     <title>Salon</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container pageMargin">
+      <hr><hr>
       <h1>Sally's Super Salon</h1>
+      <hr>
+      <hr>
       <div class="row">
         <div class="col-sm-6">
           <h2>List of Current Stylists:</h2>
@@ -23,26 +27,26 @@
           {% else %}
             <h3>There aren't any Stylists listed yet...Enter some into the list with the form on the right =></h3>
           {% endif %}
-          <form action="/stylists/delete_all" method="post">
-            <button type="submit" class="btn btn-danger">Clear All Stylists</button>
+          <form class="clearButton" action="/stylists/delete_all" method="post">
+            <button type="submit" class="btn-lg btn-danger">Clear All Stylists</button>
           </form>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 form-group">
           <h2>Add a New Stylist to your Roster Here:</h2>
-          <form action="/add_stylist" method="post">
-            <label for="stylist_name">Name</label>
-            <input id="stylist_name" type="text" name="stylist_name">
+          <form class="styleForm" action="/add_stylist" method="post">
+            <label for="stylist_name">
+            <input class="form-control" id="stylist_name" type="text" name="stylist_name" placeholder="Name..."></label>
             <br>
             <br>
-            <label for="stylist_scheduled_days">Scheduled Days</label>
-            <input id="stylist_scheduled_days" type="text" name="stylist_scheduled_days">
+            <label for="stylist_scheduled_days">
+            <input class="form-control" id="stylist_scheduled_days" type="text" name="stylist_scheduled_days" placeholder="Scheduled Days..."></label>
             <br>
             <br>
-            <label for="stylist_specialties">Specialties</label>
-            <input id="stylist_specialties" type="text" name="stylist_specialties">
+            <label for="stylist_specialties">
+            <input class="form-control" id="stylist_specialties" type="text" name="stylist_specialties" placeholder="Specialties..."></label>
             <br>
             <br>
-            <button class="btn-success btn-md" type="submit">Add Stylist</button>
+            <button class="btn-success btn-lg" type="submit">Add Stylist</button>
           </form>
         </div>
       </div>
