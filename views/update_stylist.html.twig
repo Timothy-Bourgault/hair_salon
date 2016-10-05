@@ -15,30 +15,32 @@
       <h1>Update {{ stylist.getName }}'s Profile </h1>
       <hr>
       <hr>
-      <form class="styleForm" action="/update_stylist_name/{{stylist.getId}}/{{stylist.getName}}" method="post">
-        <label for="stylist_name"></label>
-        <input id="stylist_name" type="text" for="inputSuccess2" name="stylist_name" placeholder="Name...">
-        <br>
-        <br>
-        <button class="btn-success btn-lg" type="submit">Update</button>
-        <hr>
-      </form>
-      <form class="styleForm" action="/update_stylist_schedule/{{stylist.getId}}/{{stylist.getScheduledDays}}" method="post">
-        <label for="stylist_scheduled_days"></label>
-        <input id="stylist_scheduled_days" type="text" name="stylist_scheduled_days" placeholder="Scheduled Days...">
-        <br>
-        <br>
-        <button class="btn-success btn-lg" type="submit">Update</button>
-        <hr>
-      </form>
-      <form class="styleForm" action="/update_stylist_specialties/{{stylist.getId}}/{{stylist.getSpecialties}}" method="post">
-        <label for="stylist_specialties"></label>
-        <input id="stylist_specialties" type="text" name="stylist_specialties" placeholder="Specialties...">
-        <br>
-        <br>
-        <button class="btn-success btn-lg" type="submit">Update</button>
-        <hr>
-      </form>
+      <div class="container">
+        <form class="styleForm form-group" action="/update_stylist_name/{{stylist.getId}}/{{stylist.getName}}" method="post">
+          <label for="stylist_name"></label>
+          <input class="form-control" id="stylist_name" type="text" for="inputSuccess2" name="stylist_name" placeholder="Name...">
+          <br>
+          <br>
+          <button class="btn-success btn-lg" type="submit">Update</button>
+          <hr>
+        </form>
+        <form class="styleForm" action="/update_stylist_schedule/{{stylist.getId}}/{{stylist.getScheduledDays}}" method="post">
+          <label for="stylist_scheduled_days"></label>
+          <input class="form-control" id="stylist_scheduled_days" type="text" name="stylist_scheduled_days" placeholder="Scheduled Days...">
+          <br>
+          <br>
+          <button class="btn-success btn-lg" type="submit">Update</button>
+          <hr>
+        </form>
+        <form class="styleForm" action="/update_stylist_specialties/{{stylist.getId}}/{{stylist.getSpecialties}}" method="post">
+          <label for="stylist_specialties"></label>
+          <input class="form-control" id="stylist_specialties" type="text" name="stylist_specialties" placeholder="Specialties...">
+          <br>
+          <br>
+          <button class="btn-success btn-lg" type="submit">Update</button>
+          <hr>
+        </form>
+      </div>
     </div>
   </body>
 </html>

@@ -46,10 +46,10 @@
         </div>
         <div class="col-sm-6">
           <h2>Add a New Client for this Stylist:</h2>
-          <form class="styleForm" action="/add_client" method="post">
+          <form class="styleForm form-group" action="/add_client" method="post">
             <label for="client_name"></label>
             <input id="client_name" type="text" name="client_name"  placeholder="New Client Name...">
-            <input type="hidden" name="stylist_id" value="{{ stylist.getId }}">
+            <input class="form-control" type="hidden" name="stylist_id" value="{{ stylist.getId }}">
             <br>
             <br>
             <button class="btn-success btn-lg" type="submit">Client Name</button>
