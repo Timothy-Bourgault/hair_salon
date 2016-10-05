@@ -104,7 +104,7 @@
       return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
-    $app->post("delete_client/{id}", function($id) use ($app) {
+    $app->patch("delete_client/{id}", function($id) use ($app) {
       $client = Client::find($id);
       $stylist_id = $client->getStylistId();
       $client->deleteClient();
