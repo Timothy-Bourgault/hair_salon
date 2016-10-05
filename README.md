@@ -18,8 +18,8 @@ _Organizes and arranges stylists and clients for a hair salon._
 | Delete client and their information | "'2016-10-12', '5:00', 'Mary Engel', 'twist, perm, shampoo, cut', 'George Berkley'" | "" |
 
 ## SQL Commands Used
-* _CREATE DATABASE (table name);_
-* _USE (table name);_
+* _CREATE DATABASE (database name);_
+* _USE (database name);_
 * _SELECT DATABASES;_
 * _SHOW DATABASE;_
 * _CREATE TABLE stylists (name VARCHAR (255), specialties VARCHAR (255), scheduled days VARCHAR (255));_
@@ -28,7 +28,7 @@ _Organizes and arranges stylists and clients for a hair salon._
 * _INSERT INTO (table name) (name, scheduled_days, specialties) VALUES ('Sally', 'Monday, Wednesday, and Friday', 'cut, color, curl, style, scalp massage');_
 * _SELECT * FROM (table name);_
 * _ALTER TABLE (table name) DROP (column name);_
-* _  _
+
 
 ## Setup/Installation Requirements
 
