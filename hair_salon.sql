@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8080
--- Generation Time: Sep 30, 2016 at 04:17 AM
+-- Generation Time: Oct 05, 2016 at 02:28 AM
 -- Server version: 5.7.12
 -- PHP Version: 5.6.22
 
@@ -34,6 +34,21 @@ CREATE TABLE `clients` (
   `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `stylist_id`, `name`) VALUES
+(43, 23, 'Joe'),
+(44, 23, 'Aaron'),
+(45, 23, 'Adrian'),
+(46, 24, 'Malcom'),
+(47, 24, 'Eddy'),
+(48, 24, 'Sue'),
+(49, 25, 'Hazel'),
+(50, 25, 'Tim'),
+(51, 25, 'Jen');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +61,15 @@ CREATE TABLE `stylists` (
   `scheduled_days` varchar(255) NOT NULL,
   `specialties` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `stylists`
+--
+
+INSERT INTO `stylists` (`id`, `name`, `scheduled_days`, `specialties`) VALUES
+(23, 'Maurine', 'Tuesday, Wednesday, Sunday', 'Cut, Color, Perm, Shampoo'),
+(24, 'Jacob', 'Friday, Tuesday, Thurday', 'Perm, Color, Style'),
+(25, 'Lauren', 'Wednesday', 'Manicure, Peticure');
 
 --
 -- Indexes for dumped tables
@@ -73,12 +97,12 @@ ALTER TABLE `stylists`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT for table `stylists`
 --
 ALTER TABLE `stylists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
